@@ -28,24 +28,29 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 order-2 order-lg-1">
-					<form class="checkout-form">
+					<form class="checkout-form" method="post" action="<?=site_url('admin/tambah_data_action') ?>">
 						<div class="cf-title">Form Tambah Produk</div>
 					
 						<div class="row address-inputs">
 							<div class="col-md-12">
-								<input type="text" placeholder="Address">
-								<input type="text" placeholder="Address line 2">
-								<input type="text" placeholder="Country">
+								
+								<input type="text" placeholder="Nama Barang" required id="nama" name="nama">
+								<input type="text" placeholder="Harga" required id="harga" name="harga">
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Zip code">
+								<input type="text" placeholder="Deskripsi" required id="deskripsi" name="deskripsi">
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Phone no.">
+								<input type="text" placeholder="Stok Barang" required id="stok_barang" name="stok_barang">
+							</div>
+							<div class="col-md-12">
+								<div class="cf-title">
+								<input type="file" placeholder="Gambar" required id="image" name="image"></div>
+							
 							</div>
 						</div>
 
-						<button class="site-btn submit-order-btn">Tambah Produk</button>
+						<button class="site-btn submit-order-btn" type="Submit">Tambah Produk</button>
 					</form>
 				</div>
 				</div>

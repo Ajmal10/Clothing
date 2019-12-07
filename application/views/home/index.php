@@ -52,72 +52,24 @@
 				<h2>LATEST PRODUCTS</h2>
 			</div>
 			<div class="product-slider owl-carousel">
+
+					<?php foreach($barang as $brg) :?>
 				<div class="product-item">
 					<div class="pi-pic">
-						<img src="<?= base_url('assets/')?>img/product/1.png" alt="">
+						<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
 						<div class="pi-links">
 							<a href="<?= base_url('');?>troli" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 						</div>
 					</div>
 					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
+						<h6>$<?= $brg->harga ?></h6>
+						<p><?= $brg->nama ?> </p>
 					</div>
 				</div>
-				<div class="product-item">
-					<div class="pi-pic">
-						<div class="tag-new">New</div>
-						<img src="<?= base_url('assets/')?>img/product/2.png" alt="">
-						<div class="pi-links">
-							<a href="<?= base_url('');?>troli" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Black and White Stripes Dress</p>
-					</div>
-				</div>
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="<?= base_url('assets/')?>img/product/3.jpg" alt="">
-						<div class="pi-links">
-							<a href="<?= base_url('');?>troli" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-				<div class="product-item">
-						<div class="pi-pic">
-							<img src="<?= base_url('assets/')?>img/product/4.jpg" alt="">
-							<div class="pi-links">
-								<a href="<?= base_url('');?>troli" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				<div class="product-item">
-						<div class="pi-pic">
-							<img src="<?= base_url('assets/')?>img/product/6.jpg" alt="">
-							<div class="pi-links">
-								<a href="<?= base_url('');?>troli" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
+
+				<?php endforeach ?>
+				
 			</div>
 		</div>
 	</section>
@@ -126,7 +78,7 @@
 
 
 	<!-- Product filter section -->
-	<section class="product-filter-section">
+	<!-- <section class="product-filter-section">
 		<div class="container">
 			<div class="section-title">
 				<h2>BROWSE TOP SELLING PRODUCTS</h2>
@@ -143,20 +95,22 @@
 			</ul>
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
+					<?php foreach ($barang as $brg) : ?>
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="<?= base_url('assets/')?>img/product/5.jpg" alt="">
+							<img src="<?= base_url('assets/')?>img/product/<?= $brg->image ?>" alt="">
 							<div class="pi-links">
 								<a href="<?= base_url('');?>troli" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
+							<h6><?= $brg->harga ?></h6>
+							<p><?= $brg->nama ?> </p>
 						</div>
 					</div>
 				</div>
+				<?php endforeach ?>
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
@@ -270,7 +224,7 @@
 				<button class="site-btn sb-line sb-dark">LOAD MORE</button>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Product filter section end -->
 
 
