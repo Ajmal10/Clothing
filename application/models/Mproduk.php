@@ -8,10 +8,10 @@ class Mproduk extends CI_Model{
 		return $this->db->get('barang')->result_array();
 	}
 
-	public function tambah_data($data){
-		$this->db->insert("barang",$data);
+	public function insert($data){
+		$this->db->insert("barang", $data);
+		return TRUE;
 	}
-
 	public function tampil_barang()
 	{
 		$query = $this->db->get("barang");
@@ -29,26 +29,11 @@ class Mproduk extends CI_Model{
 		$this->db->delete('barang', ['id' => $id]);
 	}
 
-	public function ubahDataBarang()
-	{
-		$data = [
-			"image" =>  $this->input->post('image', true),
-			"nama" =>  $this->input->post('nama', true),
-			"harga" =>  $this->input->post('harga', true),
-			"deskripsi" =>  $this->input->post('deskripsi', true),
-			"stok_barang" =>  $this->input->post('stok_barang', true),
-			"terjual" =>  $this->input->post('terjual', true)			
-		];
-		// if($_FILES['image']['error'] === 4){
-		// $image = $imageLama;
-		// }else{
-		// 	$image = $this->input->post('image',true);
-		// }
-		
-		$this->db->where('id', $this->input->post('id'));
+
+	public function update($id,$data){
+		$this->db->where('id', $id);
 		$this->db->update('barang', $data);
 	}
-
 	public function get_data_terjual(){
 		$this->db->select('*');
 		$this->db->from('barang');

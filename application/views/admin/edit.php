@@ -8,8 +8,9 @@
 					Form Ubah Data Barang		
 				</div>
 				<div class="card-body">
-					<form action="" method="post">
+					<form action="<?= base_url('') ?>admin/update" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="id" value="<?= $barang['id']; ?>">
+						<input type="hidden" name="imageLama" id="imageLama" value="<?= $barang['image'] ?>">
 						<div class="form-group">
 							<label for="image">Gambar</label>
 							<img src="<?= base_url('') ?>assets/img/product/<?= $barang['image'] ?>" width="200">

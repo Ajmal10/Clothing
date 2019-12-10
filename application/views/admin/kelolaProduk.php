@@ -28,7 +28,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 order-2 order-lg-1">
-					<form class="checkout-form" method="post" action="<?=site_url('admin/tambah_data_action') ?>">
+					<form class="checkout-form" method="post" action="<?=site_url('admin/insert') ?>" enctype="multipart/form-data" >
 						<div class="cf-title">Form Tambah Produk</div>
 					
 						<div class="row address-inputs">
@@ -45,7 +45,7 @@
 							</div>
 							<div class="col-md-12">
 								<div class="cf-title">
-								<input type="file" placeholder="Gambar" required id="image" name="image"></div>
+								<input type="file" placeholder="image" required id="image" name="image" ></div>
 							
 							</div>
 						</div>

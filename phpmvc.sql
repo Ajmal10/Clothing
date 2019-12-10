@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2019 at 02:12 PM
+-- Generation Time: Dec 10, 2019 at 05:43 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -43,12 +43,16 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id`, `image`, `nama`, `harga`, `deskripsi`, `stok_barang`, `terjual`) VALUES
-(2, '1.png', 'Kaos Panjang', 3, 'warna kuning', 12, 0),
-(3, '2.png', 'kaos panjang ', 4, 'warna banyak', 3, 0),
-(6, '4.png', 'hdsgjh', 6, 'hsdghjdfg', 13, 0),
-(8, '4.png', 'fsgdghtj', 6, 'fgdsgfdg', 45, 0),
-(9, '2.png', 'hghjgh', 8, 'ghghjg', 9, 0),
-(10, '3.png', 'hjghghjg', 9, 'dffgghdrhtrh', 56, 0);
+(10, '3.png', 'hjghghjg', 9, 'dffgghdrhtrh', 56, 1),
+(12, '', 'ajmal', 6, 'gbndfg sz fsdzgbsz', 5, 0),
+(17, '', 'swfwef', 4, 'erfgvrevser', 5, 0),
+(18, '', 'coba', 5, 'hgjgjghj', 5, 0),
+(19, '', '12234342', 4, 'dfgdfgdf', 56, 0),
+(24, '', 'sdsdfvsfd', 5, 'gfbfbgfghbfh', 4, 0),
+(26, '', 'af', 5, 'fdsgdegfd', 4, 0),
+(28, '', 'sdsfdsfd', 3, 'sfdfsdsfdsfd', 2, 0),
+(30, '', 'sdddf', 3, '4fgdeg', 5, 0),
+(31, '', 'dada', 4, 'fssfdgfdg', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -290,7 +294,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `film`
