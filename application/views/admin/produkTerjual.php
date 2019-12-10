@@ -27,4 +27,28 @@
 		</div>
 	</section>
 	<!-- Category section end -->
+	<section class="top-letest-product-section">
+		<div class="container">
+			<div class="section-title">
+				<h2>LATEST PRODUCTS</h2>
+			</div>
+			<div class="product-slider owl-carousel">
+
+					<?php foreach($barang as $brg) : ?>
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" >
+						
+					</div>
+					<div class="pi-text">
+						<h6>$<?= $brg->harga ?></h6>
+						<p><?= $brg->nama ?> </p>
+						<p>Terjual : <?= $brg->terjual ?></p>
+						<p>Stok Barang : <?=$brg->stok_barang ?></p>
+					</div>
+				</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	</section>
 

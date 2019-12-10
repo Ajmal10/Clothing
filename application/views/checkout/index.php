@@ -79,7 +79,7 @@
 							<li>Credit / Debit card<a href="#"><img src="<?= base_url('assets/');?>img/mastercart.png" alt=""></a></li>
 							<li>Pay when you get the package</li>
 						</ul>
-						<button class="site-btn submit-order-btn">Place Order</button>
+						<a href="<?= base_url('') ?>home/checkout" class="site-btn submit-order-btn">Place Order</a>
 					</form>
 				</div>
 				<div class="col-lg-4 order-1 order-lg-2">

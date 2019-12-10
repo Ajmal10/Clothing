@@ -12,6 +12,7 @@
 						<input type="hidden" name="id" value="<?= $barang['id']; ?>">
 						<div class="form-group">
 							<label for="image">Gambar</label>
+							<img src="<?= base_url('') ?>assets/img/product/<?= $barang['image'] ?>" width="200">
 							<input type="file" name="image" class="form-control" id="image" value="<?= $barang['image']; ?>">
 							<small class="form-text text-danger"><?= form_error('image'); ?></small>
 						</div>

@@ -30,14 +30,15 @@ class Admin extends CI_Controller{
 		
 	public function produkTerjual()
 	{
-		$data['title'] = 'Dashboard';
-		$data['user'] = $this->db->get_where('user',['email'=> $this->session->userdata('email')])->row_array();
-
-		$this->load->view('templates/headerAdmin');
-		$this->load->view('admin/produkTerjual');
-		$this->load->view('templates/footer');
+		$data['judul'] = 'Detail Data Barang';
+		$data['barang'] = $this->Mproduk->get_data_terjual(null)->result();
+			$this->load->view('templates/headerAdmin', $data);
+			$this->load->view('admin/produkTerjual', $data);
+			$this->load->view('templates/footer');
+		}
+		
 	
-	}
+	
 
 		
 	public function kelola()
@@ -67,13 +68,18 @@ class Admin extends CI_Controller{
 	}
 
 	public function tambah_data_action(){
-		$insert = array(
-			'image' => $this->input->post("image"),
-			'nama' => $this->input->post("nama"),
-			'harga' => $this->input->post("harga"),
-			'deskripsi' => $this->input->post("deskripsi"),
-			'stok_barang' => $this->input->post("stok_barang"),
-			'terjual' => 0,
+		$this->upload_img();
+
+		if ($_FILES['image']['name']) {
+			if ($this->upload->do_upload('image')) {
+				$gbr = $this->upload->data();
+					$insert = array(
+					'image' => $gbr['file_name'],
+					'nama' => $this->input->post("nama"),
+					'harga' => $this->input->post("harga"),
+					'deskripsi' => $this->input->post("deskripsi"),
+					'stok_barang' => $this->input->post("stok_barang"),
+					'terjual' => 0,
 		);
 		//var_dump($insert);
 		$this->Mproduk->tambah_data($insert);
@@ -81,17 +87,20 @@ class Admin extends CI_Controller{
 		redirect('admin/index');
 		
 		$this->session->set_flashdata('flash','Data Ditambahkan');
+			}
+		}
 	}
 
 	public function hapus($id)
 	{
 		$this->Mproduk->hapusDataBarang($id);
 		$this->session->set_flashdata('flash', 'Dihapus');
-		redirect('barang');
+		redirect('admin/index');
 	}
 
 	public function ubah($id)
 	{
+		
 		$data['judul'] = 'Form Ubah Data Barang';
 		$data['barang'] = $this->Mproduk->getBarangById($id);
 
@@ -107,7 +116,7 @@ class Admin extends CI_Controller{
 		} else {
 			$this->Mproduk->ubahDataBarang();
 			$this->session->set_flashdata('flash', 'Diubah');
-			redirect('barang');
+			redirect('admin/index');
 		}
 	}
 
@@ -119,6 +128,16 @@ class Admin extends CI_Controller{
 		$this->load->view('admin/show', $data);
 		$this->load->view('templates/footer');
 	}	
-
+	
+	public function upload_img() {
+		$nmfile = "file_upload_".time();
+		$config['upload_path'] = './assets/img/product/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp|tif';
+		$config['file_name'] = $nmfile;
+	
+		// Load and initialize upload library
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+	}
 	
 }

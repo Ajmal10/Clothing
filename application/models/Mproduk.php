@@ -37,11 +37,22 @@ class Mproduk extends CI_Model{
 			"harga" =>  $this->input->post('harga', true),
 			"deskripsi" =>  $this->input->post('deskripsi', true),
 			"stok_barang" =>  $this->input->post('stok_barang', true),
-			"terjual" =>  $this->input->post('terjual', true)
-
-			
+			"terjual" =>  $this->input->post('terjual', true)			
 		];
+		// if($_FILES['image']['error'] === 4){
+		// $image = $imageLama;
+		// }else{
+		// 	$image = $this->input->post('image',true);
+		// }
+		
 		$this->db->where('id', $this->input->post('id'));
 		$this->db->update('barang', $data);
+	}
+
+	public function get_data_terjual(){
+		$this->db->select('*');
+		$this->db->from('barang');
+		$this->db->where('terjual >',0);
+		return $this->db->get();
 	}
 }

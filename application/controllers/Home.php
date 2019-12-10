@@ -27,5 +27,22 @@ class Home extends CI_Controller {
 		$this->load->view('home/index');
 		$this->load->view('templates/footer');
 	}
+
+	public function troli($id)
+	{
+		$data['title'] = 'Clothing';
+		$data['barang'] = $this->Mhome->getBarangById($id);
+		$this->load->view('templates/header',$data);
+		$this->load->view('troli/index',$data);
+		$this->load->view('templates/footer');
+	}
 	
+	public function checkout()
+	{
+		$data['title'] = 'Clothing';
+		$data['barang'] = $this->Mhome->checkout(null)->result();
+		$this->load->view('templates/header',$data);
+		$this->load->view('home/index',$data);
+		$this->load->view('templates/footer');
+	}
 }

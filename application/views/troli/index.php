@@ -24,17 +24,17 @@
 								<tr>
 									<th class="product-th">Product</th>
 									<th class="quy-th">Quantity</th>
-									<th class="size-th">SizeSize</th>
 									<th class="total-th">Price</th>
 								</tr>
 							</thead>
 							<tbody>
+								
 								<tr>
 									<td class="product-col">
-										<img src="<?= base_url('assets/');?>img/cart/1.jpg" alt="">
+										<img src="<?= base_url('');?>assets/img/product/<?= $barang['image'] ?>" alt="">
 										<div class="pc-title">
-											<h4>Animal Print Dress</h4>
-											<p>$45.90</p>
+											<h4><?= $barang['nama'] ?></h4>
+											<p>$<?= $barang['harga'] ?></p>
 										</div>
 									</td>
 									<td class="quy-col">
@@ -44,50 +44,15 @@
 											</div>
                     					</div>
 									</td>
-									<td class="size-col"><h4>Size M</h4></td>
-									<td class="total-col"><h4>$45.90</h4></td>
+									<td class="total-col"><h4>$<?= $barang['harga'] ?></h4></td>
+
 								</tr>
-								<tr>
-									<td class="product-col">
-										<img src="<?= base_url('assets/');?>img/cart/2.jpg" alt="">
-										<div class="pc-title">
-											<h4>Ruffle Pink Top</h4>
-											<p>$45.90</p>
-										</div>
-									</td>
-									<td class="quy-col">
-										<div class="quantity">
-					                        <div class="pro-qty">
-												<input type="text" value="1">
-											</div>
-                    					</div>
-									</td>
-									<td class="size-col"><h4>Size M</h4></td>
-									<td class="total-col"><h4>$45.90</h4></td>
-								</tr>
-								<tr>
-									<td class="product-col">
-										<img src="<?= base_url('assets/');?>img/cart/3.jpg" alt="">
-										<div class="pc-title">
-											<h4>Skinny Jeans</h4>
-											<p>$45.90</p>
-										</div>
-									</td>
-									<td class="quy-col">
-										<div class="quantity">
-					                        <div class="pro-qty">
-												<input type="text" value="1">
-											</div>
-                    					</div>
-									</td>
-									<td class="size-col"><h4>Size M</h4></td>
-									<td class="total-col"><h4>$45.90</h4></td>
-								</tr>
+								
 							</tbody>
 						</table>
 						</div>
 						<div class="total-cost">
-							<h6>Total <span>$99.90</span></h6>
+							<h6>Total <span>$<?= $barang['harga'] ?></span></h6>
 						</div>
 					</div>
 				</div>
@@ -96,8 +61,8 @@
 						<input type="text" placeholder="Enter promo code">
 						<button>Submit</button>
 					</form>
-					<a href="<?= base_url('');?>checkout" class="site-btn">Proceed to checkout</a>
-					<a href="<?= base_url('');?>home" class="site-btn sb-dark">Continue shopping</a>
+					<a href="<?= base_url('');?>home/checkout" class="site-btn">Proceed to checkout</a>
+					<a href="<?= base_url('');?>home/index" class="site-btn sb-dark">Continue shopping</a>
 				</div>
 			</div>
 		</div>
