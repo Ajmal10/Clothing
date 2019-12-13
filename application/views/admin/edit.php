@@ -32,6 +32,15 @@
 							<input type="text" name="deskripsi" class="form-control" id="deskripsi" value="<?= $barang['deskripsi']; ?>">
 							<small class="form-text text-danger"><?= form_error('deskripsi'); ?></small>
 						</div>
+						<div class="col-md-6">
+								<!-- <input type="text" placeholder="Kategori" required id="kategori" name="kategori"> -->
+								<select id="kategori" name="kategori">
+									<option>Kategori</option>
+									<option>Atasan</option>
+									<option>Bawahan</option>
+								</select>
+								</div>
+							</div>
 						<div class="form-group">
 							<label for="stok_barang">Stok barang</label>
 							<input type="text" name="stok_barang" class="form-control" id="stok_barang" value="<?= $barang['stok_barang']; ?>">

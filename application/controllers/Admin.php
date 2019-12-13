@@ -14,13 +14,6 @@ class Admin extends CI_Controller{
 		$data['title'] = 'Dashboard';
 		$data['user'] = $this->db->get_where('user',['email'=> $this->session->userdata('email')])->row_array();
 		$data['barang'] = $this->Mproduk->tampil_barang();
-	// 	$this->load->view('templates/auth_header',$data);
-	// 	$this->load->view('templates/sidebar',$data);
-	// 	$this->load->view('templates/topbar',$data);
-	// 	$this->load->view('admin/index',$data);
-	// 	$this->load->view('templates/auth_footer');
-	
-
 		$this->load->view('templates/headerAdmin');
 		$this->load->view('admin/index', $data);
 		$this->load->view('templates/footer');
@@ -77,6 +70,7 @@ class Admin extends CI_Controller{
 		$nama = $this->input->post('nama');
 		$harga =  $this->input->post('harga');
 		$deskripsi =  $this->input->post('deskripsi');
+		$kategori = $this->input->post('kategori');
 		$stok_barang =  $this->input->post('stok_barang');
 		$image = $this->upload_img();
 		// Call upload image cconfiguration
@@ -85,6 +79,7 @@ class Admin extends CI_Controller{
 					'nama' => $nama,
 					'harga' => $harga,
 					'deskripsi' => $deskripsi,
+					'kategori' => $kategori,
 					'stok_barang' => $stok_barang,
 					'terjual' => $terjual,
 
@@ -95,6 +90,7 @@ class Admin extends CI_Controller{
 					'nama' => $nama,
 					'harga' => $harga,
 					'deskripsi' => $deskripsi,
+					'kategori' => $kategori,
 					'stok_barang' => $stok_barang,
 					'terjual' => $terjual,
 				];
@@ -109,6 +105,7 @@ class Admin extends CI_Controller{
 		$nama = $this->input->post('nama');
 		$harga =  $this->input->post('harga');
 		$deskripsi =  $this->input->post('deskripsi');
+		$kategori = $this->input->post('kategori');
 		$stok_barang =  $this->input->post('stok_barang');
 		$image = $this->upload_img();
 
@@ -117,6 +114,7 @@ class Admin extends CI_Controller{
 					'nama' => $nama,
 					'harga' => $harga,
 					'deskripsi' => $deskripsi,
+					'kategori'=>$kategori,
 					'stok_barang' => $stok_barang,
 					'terjual' => 0
 		];

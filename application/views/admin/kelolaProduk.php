@@ -41,16 +41,24 @@
 								<input type="text" placeholder="Deskripsi" required id="deskripsi" name="deskripsi">
 							</div>
 							<div class="col-md-6">
+								<!-- <input type="text" placeholder="Kategori" required id="kategori" name="kategori"> -->
+								<select id="kategori" name="kategori">
+									<option>Kategori</option>
+									<option>Atasan</option>
+									<option>Bawahan</option>
+								</select>
+								</div>
+							</div>
+							<div class="col-md-12">
 								<input type="text" placeholder="Stok Barang" required id="stok_barang" name="stok_barang">
 							</div>
 							<div class="col-md-12">
 								<div class="cf-title">
 								<input type="file" placeholder="image" required id="image" name="image" ></div>
-							
 							</div>
+						<button class="site-btn submit-order-btn" type="Submit">Tambah Produk</button>
 						</div>
 
-						<button class="site-btn submit-order-btn" type="Submit">Tambah Produk</button>
 					</form>
 				</div>
 				</div>

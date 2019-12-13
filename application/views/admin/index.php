@@ -59,6 +59,7 @@
 										<div class="pi-text">
 											<h6>$<?= $brg->harga ?></h6>
 											<p><?= $brg->nama ?> </p>
+											<p><?= $brg->kategori ?> </p>
 										</div>
 									</div>
 
