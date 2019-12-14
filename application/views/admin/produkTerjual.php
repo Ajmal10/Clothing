@@ -1,11 +1,4 @@
-	<!-- Page info -->
-	<div class="page-top-info">
-		<div class="container">
-			<h4>Clothing Store</h4>
 
-		</div>
-	</div>
-	<!-- Page info end -->
 
 
 	<!-- Category section -->
@@ -23,32 +16,36 @@
 					</div>
 				</div>
 
-			</div>
-		</div>
-	</section>
-	<!-- Category section end -->
-	<section class="top-letest-product-section">
-		<div class="container">
-			<div class="section-title">
-				<h2>LATEST PRODUCTS</h2>
-			</div>
-			<div class="product-slider owl-carousel">
-
-					<?php foreach($barang as $brg) : ?>
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" >
-						
-					</div>
-					<div class="pi-text">
-						<h6>$<?= $brg->harga ?></h6>
-						<p><?= $brg->nama ?> </p>
-						<p>Terjual : <?= $brg->terjual ?></p>
-						<p>Stok Barang : <?=$brg->stok_barang ?></p>
+					<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+						<div class="section-title">
+							<h2>Produk Terjual</h2>
+						</div>
+							<div class="row mt-5">
+								<?php foreach($barang as $brg) :?>
+								<div class="col-lg-4 col-sm-6">
+									<div class="product-item">
+										<div class="pi-pic">
+											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
+											<div class="pi-links">
+												<a href="<?= base_url('');?>home/troli/<?= $brg->id ?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+												<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+											</div>
+										</div>
+										<div class="pi-text">
+											<h6><?= $brg->harga ?></h6>
+											<p><?= $brg->nama ?> </p>
+										</div>
+									</div>
+								</div>
+								<?php endforeach ?>
+								
+								<div class="text-center w-100 pt-3">
+									<button class="site-btn sb-line sb-dark">LOAD MORE</button>
+								</div>
+							</div>
 					</div>
 				</div>
-				<?php endforeach ?>
 			</div>
-		</div>
 	</section>
+	<!-- Category section end -->
 

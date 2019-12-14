@@ -53,7 +53,7 @@
 			</div>
 			<div class="product-slider owl-carousel">
 
-					<?php foreach($barang as $brg) :?>
+				<?php foreach($barang as $brg) :?>
 				<div class="product-item">
 					<div class="pi-pic">
 						<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
@@ -63,11 +63,10 @@
 						</div>
 					</div>
 					<div class="pi-text">
-						<h6>$<?= $brg->harga ?></h6>
+						<h6><?= $brg->harga ?></h6>
 						<p><?= $brg->nama ?> </p>
 					</div>
 				</div>
-
 				<?php endforeach ?>
 				
 			</div>

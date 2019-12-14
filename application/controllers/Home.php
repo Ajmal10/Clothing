@@ -45,4 +45,15 @@ class Home extends CI_Controller {
 		$this->load->view('home/index',$data);
 		$this->load->view('templates/footer');
 	}
+	
+	public function category()
+	{
+		$data['title'] = 'Clothing';
+		$data['barang'] = $this->Mhome->tampil_barang();
+		$this->load->view('templates/header',$data);
+		$this->load->view('home/index',$data);
+		$this->load->view('templates/footer');
+	}
+
+
 }

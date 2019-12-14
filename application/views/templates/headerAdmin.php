@@ -42,7 +42,7 @@
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
 						<a href="./index.html" class="site-logo">
-							<img src="<?= base_url('assets/')?>img/logo.png" alt="">
+							<img src="<?= base_url('assets/')?>img/Clothing.png" alt="">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5"></div>

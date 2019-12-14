@@ -76,8 +76,7 @@
 				<!-- menu -->
 				<ul class="main-menu">
 					<li><a href="<?= base_url('');?>home">Home</a></li>
-					<li><a href="#">T-Shirt</a></li>
-					<li><a href="<?= base_url()?>category">Category</a></li>
+					<li><a href="<?= base_url()?>category/index">Category</a></li>
 				</ul>
 			</div>
 		</nav>

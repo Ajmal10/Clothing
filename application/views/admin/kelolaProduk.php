@@ -1,11 +1,3 @@
-	<!-- Page info -->
-	<div class="page-top-info">
-		<div class="container">
-			<h4>Clothing Store</h4>
-
-		</div>
-	</div>
-	<!-- Page info end -->
 
 
 	<!-- Category section -->
