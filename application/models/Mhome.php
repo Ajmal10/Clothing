@@ -2,6 +2,12 @@
 
 class Mhome extends CI_Model{
 
+	public function getAllBarang()
+	{
+		$this->load->model('Mhome');
+		return $this->db->get('barang')->result_array();
+	}
+
 	public function tampil_barang()
 	{
 		$query = $this->db->get("barang");
@@ -30,5 +36,17 @@ class Mhome extends CI_Model{
 		$this->db->from('barang');
 		$this->db->where('kategori','bawahan');
 		return $this->db->get();
+	}
+
+	public function find($id)
+	{
+		$result = $this->db->where('id', $id)
+						   ->limit(1)
+						   ->get('barang');
+		if ($result->num_rows() > 0) {
+			return $result->row();
+		}else {
+			return array();
+		}
 	}
  }

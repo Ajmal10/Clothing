@@ -76,9 +76,13 @@
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
-									<span>0</span>
+									<?php $keranjang = 'Shopping Cart '.$this->cart->total_items(). ' items' ?>
+
+									<?php echo anchor('user/detailKeranjang', $keranjang) ?>
+
+									 
 								</div>
-								<a href="#">Shopping Cart</a>
+								<!-- <a href="#">Shopping Cart</a> -->
 							</div>
 						</div>
 					</div>

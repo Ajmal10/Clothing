@@ -24,8 +24,8 @@
 										<div class="pi-pic">
 											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
 											<div class="pi-links">
-												<a href="<?= base_url('');?>home/troli/<?= $brg->id ?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-												<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+												<a href="<?= base_url('');?>admin/edit<?= $brg->id ?>" class="add-card"><i class="flaticon-Deleted"></i><span>Edit</span></a>
+												<a href="#" class="wishlist-btn"><i class="flaticon-trash"></i></a>
 											</div>
 										</div>
 										<div class="pi-text">

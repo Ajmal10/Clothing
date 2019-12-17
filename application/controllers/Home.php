@@ -22,9 +22,10 @@ class Home extends CI_Controller {
 	{
 		$data['title'] = 'Clothing';
 		$data['user'] = $this->db->get_where('user',['email'=> $this->session->userdata('email')])->row_array();
+		$data['barang'] = $this->Mhome->tampil_barang();
 		$data['shop'] = 'Shopping Cart';
-		$this->load->view('templates/headerUser',$data);
-		$this->load->view('home/index');
+		$this->load->view('templates/headerUser',$data); 
+		$this->load->view('home/index',$data);
 		$this->load->view('templates/footer');
 	}
 
