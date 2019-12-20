@@ -7,7 +7,7 @@ class User extends CI_Controller{
 	public function __construct()
     {
 		parent::__construct();
-		$this->load->model('Mhome','Mproduk');
+		$this->load->model('Mhome');
 		$this->load->library('form_validation');
 	}
 
@@ -70,39 +70,7 @@ class User extends CI_Controller{
 		$this->load->view('checkout/index');
 		$this->load->view('templates/footer');
 	}
-	public function insert($id){
-		// if($carts = $this->cart->contents()){
-
-		// }
-		$barang = $this->Mhome->find($id);
-		$data = array(
-
-					'id'		=> $barang->id,
-       				'qty' 		=> 1,
-					'price' 	=> $barang->harga,
-					'name' 		=> $barang->nama,
-					'image'		=> $barang->image
-
-		);
-
-		$nama = $this->input->post('nama');
-		$alamat =  $this->input->post('alamat');
-		$no_telp =  $this->input->post('no_telp');
-		$quantity =  1;
-		$id = $this->cart->insert($data);
-;
-
-		$data = [
-					'nama' => $nama,
-					'alamat' => $alamat,
-					'no_telp' => $no_telp,
-					'quantity' => 1,
-					'id'=>$id,
-		];
-				//var_dump($data);
-				$res = $this->Mhome->insert($data);
-				redirect('home/index2');
-		}
+	
 	public function proses_pesanan($id)
 	{
 		
@@ -124,7 +92,7 @@ class User extends CI_Controller{
                                         'name' => $item['name'],
                                         'qty' => $item['qty'],
                                         'harga' => $item['price']);
-                        $proses = $this->tambah_detail_order($data_detail);
+                        $proses = $this->Mhome->insert($data_detail);
                     }
             }
 				$this->cart->destroy();

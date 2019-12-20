@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 order-2 order-lg-1">
-					<form class="checkout-form" action="<?= site_url('user/insert') ?>" enctype="multipart/form-data" method="post">
+					<form class="checkout-form" action="" enctype="multipart/form-data" method="post">
 						<div class="cf-title">Billing Address</div>
 						<div class="row">
 							<!-- <div class="col-md-7">
