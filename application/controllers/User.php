@@ -2,41 +2,42 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller{
+class User extends CI_Controller
+{
 
 	public function __construct()
-    {
+	{
 		parent::__construct();
 		$this->load->model('Mhome');
+		$this->load->model('Mpesanan');
+		$this->load->model('Mproduk');
 		$this->load->library('form_validation');
+		$this->load->library('cart');
 	}
 
 	public function index()
 	{
-		$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['barang'] = $this->Mhome->tampil_barang();
 		$data['title'] = 'My Profile';
-		$this->load->view('templates/auth_header',$data);
-		$this->load->view('templates/sidebarUser',$data);
-		$this->load->view('templates/topbar',$data);
-		$this->load->view('user/index',$data);
+		$this->load->view('templates/auth_header', $data);
+		$this->load->view('templates/sidebarUser', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('user/index', $data);
 		$this->load->view('templates/auth_footer');
 	}
 
-	public function tambah_ke_keranjang($id)
+	public function tambah_ke_keranjang()
 	{
-		$barang = $this->Mhome->find($id);
-		$data = array(
+		$product = [
+			'id' => $this->input->post('id'),
+			'name' => $this->input->post('nama'),
+			'price' =>  $this->input->post('harga'),
+			'image' =>  $this->input->post('gambar'),
+			'qty' => 1
+		];
 
-					'id'		=> $barang->id,
-       				'qty' 		=> 1,
-					'price' 	=> $barang->harga,
-					'name' 		=> $barang->nama,
-					'image'		=> $barang->image
-
-		);
-
-		$this->cart->insert($data);
+		$this->cart->insert($product);
 		redirect('home/index2');
 	}
 
@@ -51,8 +52,8 @@ class User extends CI_Controller{
 
 	public function detailKeranjang()
 	{
-		$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-		$this->load->view('templates/headerUser',$data);
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$this->load->view('templates/headerUser', $data);
 		$this->load->view('troli/index');
 		$this->load->view('templates/footer');
 	}
@@ -65,43 +66,54 @@ class User extends CI_Controller{
 
 	public function pembayaran()
 	{
-		$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-		$this->load->view('templates/headerUser',$data);
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$this->load->view('templates/headerUser', $data);
 		$this->load->view('checkout/index');
 		$this->load->view('templates/footer');
 	}
-	
-	public function proses_pesanan($id)
+
+	public function proses_pesanan()
 	{
-		
-		 $barang = $this->Mhome->find($id);
-		//
-		$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-		$data['barang'] = $this->Mhome->getBarangById($id);
-		$this->load->view('templates/headerUser', $data);
-		$this->load->view('user/proses_pesanan', $data);
-		$this->load->view('templates/footer');
-		// $stok = $this->barang->stok_barang - $this->cart->total_items();
-		// $terjual = $terjual + $this->cart->total_items();
+		$nama = $this->input->post('nama');
+		$alamat = $this->input->post('alamat');
+		$noHp = $this->input->post('no_telp');
+		$cart = $this->cart->contents();
 
-		if ($cart = $this->cart->contents())
-            {
-                foreach ($cart as $item)
-                    {
-                        $data_detail = array('id' =>$item['id'],
-                                        'name' => $item['name'],
-                                        'qty' => $item['qty'],
-                                        'harga' => $item['price']);
-                        $proses = $this->Mhome->insert($data_detail);
-                    }
-            }
-				$this->cart->destroy();
+		$data = [
+			'nama' => $nama,
+			'no_hp' => $noHp,
+			'alamat' => $alamat
+		];
+		$customer = $this->Mpesanan->insertCustomer($data);
 
-		
-		
-		 
-		
+		$data1 = [
+			'tanggal' => date('Y-m-d'),
+			'id_customer' => $customer // id customer didapat ketika sudah di insert diatas di model mereturn insert_id
+		];
+		$pesanan = $this->Mpesanan->insertPesanan($data1);
+
+		if ($cart) {
+			foreach ($cart as $item) {
+				$detailPesanan = [
+					'id_pesanan' =>$pesanan, // id pesanan didapat ketika sudah di insert diatas di model mereturn insert_id
+					'id_barang' => $item['id'],
+					'qty' => $item['qty'],
+					'harga' => $item['price']
+				];
+				$pesanan = $this->Mpesanan->insertDetailPesanan($detailPesanan);
+				$cekStok = $this->Mhome->getBarangById($item['id']);
+				$kurangStok = $cekStok['stok_barang'] - $item['qty'];
+				$tambahStok = $cekStok['terjual'] + $item['qty'];
+				$this->Mproduk->update($item['id'], [
+					'stok_barang' => $kurangStok
+				]);
+				$this->Mproduk->update($item['id'], [
+					'terjual' => $tambahStok
+				]);
+			}
+		}
+		$this->cart->destroy();
+		redirect('home/index2');
 	}
-
 }
 
