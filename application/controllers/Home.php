@@ -25,7 +25,7 @@ class Home extends CI_Controller {
 		$data['barang'] = $this->Mhome->tampil_barang();
 		$data['shop'] = 'Shopping Cart';
 		$this->load->view('templates/headerUser',$data); 
-		$this->load->view('home/index',$data);
+		$this->load->view('home/indexUser',$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 	{
 		$data['title'] = 'Clothing';
 		$data['barang'] = $this->Mhome->getBarangById($id);
-		$this->load->view('templates/header',$data);
+		$this->load->view('templates/headerUser',$data);
 		$this->load->view('troli/index',$data);
 		$this->load->view('templates/footer');
 	}
@@ -41,9 +41,10 @@ class Home extends CI_Controller {
 	public function checkout()
 	{
 		$data['title'] = 'Clothing';
-		$data['barang'] = $this->Mhome->checkout(null)->result();
-		$this->load->view('templates/header',$data);
-		$this->load->view('home/index',$data);
+		$data['user'] = $this->db->get_where('user',['email'=> $this->session->userdata('email')])->row_array();
+		
+		$this->load->view('templates/headerUser',$data);
+		$this->load->view('checkout/index');
 		$this->load->view('templates/footer');
 	}
 	

@@ -18,12 +18,9 @@ class Mhome extends CI_Model{
 	{
 		return $this->db->get_where('barang', ['id' => $id])->row_array();
 	}
-	public function checkout(){
-		$this->db->select('*');
-		$this->db->from('barang');
-		$this->db->where('id', 'id');
-		$this->db->set('terjual', 1);
-		$this->db->update('barang');
+	public function insert($data){
+		$this->db->insert("pesanan", $data);
+		return TRUE;
 	}
 	public function get_data_atasan(){
 		$this->db->select('*');

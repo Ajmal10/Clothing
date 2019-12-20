@@ -7,7 +7,7 @@ class User extends CI_Controller{
 	public function __construct()
     {
 		parent::__construct();
-		$this->load->model('Mhome');
+		$this->load->model('Mhome','Mproduk');
 		$this->load->library('form_validation');
 	}
 
@@ -31,7 +31,9 @@ class User extends CI_Controller{
 					'id'		=> $barang->id,
        				'qty' 		=> 1,
 					'price' 	=> $barang->harga,
-					'name' 		=> $barang->nama
+					'name' 		=> $barang->nama,
+					'image'		=> $barang->image
+
 		);
 
 		$this->cart->insert($data);
@@ -49,12 +51,10 @@ class User extends CI_Controller{
 
 	public function detailKeranjang()
 	{
-	$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-		$this->load->view('templates/auth_header');
-		$this->load->view('templates/sidebarUser');
-		$this->load->view('templates/topbar',$data);
-		$this->load->view('user/keranjang');
-		$this->load->view('templates/auth_footer');
+		$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+		$this->load->view('templates/headerUser',$data);
+		$this->load->view('troli/index');
+		$this->load->view('templates/footer');
 	}
 
 	public function hapus_keranjang()
@@ -66,23 +66,73 @@ class User extends CI_Controller{
 	public function pembayaran()
 	{
 		$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-		$this->load->view('templates/auth_header');
-		$this->load->view('templates/sidebarUser');
-		$this->load->view('templates/topbar',$data);
-		$this->load->view('user/pembayaran');
-		$this->load->view('templates/auth_footer');
+		$this->load->view('templates/headerUser',$data);
+		$this->load->view('checkout/index');
+		$this->load->view('templates/footer');
 	}
+	public function insert($id){
+		// if($carts = $this->cart->contents()){
 
-	public function proses_pesanan()
+		// }
+		$barang = $this->Mhome->find($id);
+		$data = array(
+
+					'id'		=> $barang->id,
+       				'qty' 		=> 1,
+					'price' 	=> $barang->harga,
+					'name' 		=> $barang->nama,
+					'image'		=> $barang->image
+
+		);
+
+		$nama = $this->input->post('nama');
+		$alamat =  $this->input->post('alamat');
+		$no_telp =  $this->input->post('no_telp');
+		$quantity =  1;
+		$id = $this->cart->insert($data);
+;
+
+		$data = [
+					'nama' => $nama,
+					'alamat' => $alamat,
+					'no_telp' => $no_telp,
+					'quantity' => 1,
+					'id'=>$id,
+		];
+				//var_dump($data);
+				$res = $this->Mhome->insert($data);
+				redirect('home/index2');
+		}
+	public function proses_pesanan($id)
 	{
-
+		
+		 $barang = $this->Mhome->find($id);
+		//
 		$data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-		$this->cart->destroy();
-		$this->load->view('templates/auth_header', $data);
-		$this->load->view('templates/sidebarUser', $data);
-		$this->load->view('templates/topbar',$data);
+		$data['barang'] = $this->Mhome->getBarangById($id);
+		$this->load->view('templates/headerUser', $data);
 		$this->load->view('user/proses_pesanan', $data);
-		$this->load->view('templates/auth_footer');
+		$this->load->view('templates/footer');
+		// $stok = $this->barang->stok_barang - $this->cart->total_items();
+		// $terjual = $terjual + $this->cart->total_items();
+
+		if ($cart = $this->cart->contents())
+            {
+                foreach ($cart as $item)
+                    {
+                        $data_detail = array('id' =>$item['id'],
+                                        'name' => $item['name'],
+                                        'qty' => $item['qty'],
+                                        'harga' => $item['price']);
+                        $proses = $this->tambah_detail_order($data_detail);
+                    }
+            }
+				$this->cart->destroy();
+
+		
+		
+		 
+		
 	}
 
 }

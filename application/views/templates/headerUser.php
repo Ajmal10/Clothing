@@ -73,15 +73,27 @@
 				                </a>
 				              </div>
 				          </div>
-							<div class="up-item">
+							<!-- <div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
-									<?php $keranjang = 'Shopping Cart '.$this->cart->total_items(). ' items' ?>
+									<!-- <span><?php $keranjang = 'Shopping Cart '.$this->cart->total_items(). ' items' ?>0</span> -->
+									<!-- <span><?=$this->cart->total_items()?></span> -->
 
-									<?php echo anchor('user/detailKeranjang', $keranjang) ?>
+									<!-- <?php echo anchor('user/detailKeranjang', $keranjang) ?> -->
+
+									 
+								<!-- </div>  -->
+								<div class="up-item">
+								<div class="shopping-card">
+									<i class="flaticon-bag"></i>
+									<span><?= $keranjang=$this->cart->total_items() ?>
+										<?php  anchor('user/detailKeranjang', $keranjang) ?>
+									</span>
 
 									 
 								</div>
+								<a href="<?= base_url('user/detailKeranjang') ?>">Shopping Cart</a>
+							</div>
 								<!-- <a href="#">Shopping Cart</a> -->
 							</div>
 						</div>
@@ -93,7 +105,7 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="<?= base_url('');?>home">Home</a></li>
+					<li><a href="<?= base_url('');?>home/index2">Home</a></li>
 					<li><a href="<?= base_url()?>category/index">Category</a></li>
 				</ul>
 			</div>

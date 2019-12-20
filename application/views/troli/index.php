@@ -29,40 +29,47 @@
 							</thead>
 							<tbody>
 								
+									<?php 
+										// $no=1;
+										foreach ($this->cart->contents() as $items) : ?>
 								<tr>
-									<td class="product-col">
-										<img src="<?= base_url('');?>assets/img/product/<?= $barang['image'] ?>" alt="">
-										<div class="pc-title">
-											<h4><?= $barang['nama'] ?></h4>
-											<p>$<?= $barang['harga'] ?></p>
-										</div>
-									</td>
-									<td class="quy-col">
-										<div class="quantity">
-					                        <div class="pro-qty">
-												<input type="text" value="1">
-											</div>
-                    					</div>
-									</td>
-									<td class="total-col"><h4>$<?= $barang['harga'] ?></h4></td>
 
+									<td class="product-col">
+										<!-- <img src="<?= base_url('');?>assets/img/product/<?= $items['image'] ?>" alt=""> -->
+										<!-- <div class="pc-title"> -->
+											<h4><?= $items['name'] ?></h4></p>
+										<!-- </div> -->
+									</td>
+									<td>
+										<!-- <div class="pc-title"> -->
+											<p><?= $items['qty'] ?></p> </p>
+										<!-- </div> -->
+									</td>
+									<td>
+										<!-- <div class="pc-title"> -->
+											<p>Rp.<?= number_format($items['price']) ?> </p>
+										<!-- </div> -->
+									</td>
+
+				
+							<?php endforeach ?>
 								</tr>
 								
 							</tbody>
 						</table>
 						</div>
 						<div class="total-cost">
-							<h6>Total <span>$<?= $barang['harga'] ?></span></h6>
+							<h6>Total <span>Rp. <?= number_format($this->cart->total()) ?></span></h6>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 card-right">
-					<form class="promo-code-form">
+					<!-- <form class="promo-code-form">
 						<input type="text" placeholder="Enter promo code">
 						<button>Submit</button>
-					</form>
-					<a href="<?= base_url('');?>home/checkout" class="site-btn">Proceed to checkout</a>
-					<a href="<?= base_url('');?>home/index" class="site-btn sb-dark">Continue shopping</a>
+					</form> -->
+					<a href="<?= base_url('');?>user/pembayaran" class="site-btn">Proceed to checkout</a>
+					<a href="<?= base_url('');?>home/index2" class="site-btn sb-dark">Continue shopping</a>
 				</div>
 			</div>
 		</div>
