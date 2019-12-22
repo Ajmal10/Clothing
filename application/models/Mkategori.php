@@ -11,7 +11,7 @@ class Mkategori extends CI_Model {
 	public function get_data_atasan(){
 		$this->db->select('*');
 		$this->db->from('barang');
-		$this->db->where('kategori','atasan');
+		$this->db->where('kategori','1');
 		return $this->db->get();
 	}
 	public function get_data_bawahan(){
@@ -24,7 +24,7 @@ class Mkategori extends CI_Model {
 		// return $query->result();
 		$this->db->select('*');
 		$this->db->from('barang');
-		$this->db->where('kategori','bawahan');
+		$this->db->where('kategori','2');
 		return $this->db->get();
 	}
 

@@ -22,15 +22,17 @@
 								<div class="col-lg-4 col-sm-6">
 									<div class="product-item">
 										<div class="pi-pic">
-											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
+											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;">
 											<div class="pi-links">
-												<a href="<?= base_url('');?>admin/edit<?= $brg->id ?>" class="add-card"><i class="flaticon-Deleted"></i><span>Edit</span></a>
-												<a href="#" class="wishlist-btn"><i class="flaticon-trash"></i></a>
+												<a href="<?= base_url('');?>admin/ubah/<?= $brg->id ?>" class="add-card"><i class="flaticon-edit"></i><span>Edit</span></a>
+												<a href="<?= base_url('');?>admin/hapus/<?= $brg->id ?>" class="wishlist-btn"><i class="flaticon-Trash fill"></i></a>
 											</div>
 										</div>
 										<div class="pi-text">
 											<h6><?= $brg->harga ?></h6>
 											<p><?= $brg->nama ?> </p>
+											<p>Stok Barang :<?= $brg->stok_barang ?></p>
+											<p>Terjual :<?= $brg->terjual ?></p>
 										</div>
 									</div>
 								</div>

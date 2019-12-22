@@ -35,9 +35,10 @@
 						<div class="col-md-6">
 								<!-- <input type="text" placeholder="Kategori" required id="kategori" name="kategori"> -->
 								<select id="kategori" name="kategori">
-									<option>Kategori</option>
-									<option>Atasan</option>
-									<option>Bawahan</option>
+									<option value="0">Kategori</option>
+
+									<option value="1" <?php if($barang['kategori']==1) echo 'selected="true"'; ?>>Atasan</option>
+									<option value="2" <?php if($barang['kategori']==2) echo 'selected="true"'; ?>>Bawahan</option>
 								</select>
 								</div>
 							</div>
@@ -45,6 +46,11 @@
 							<label for="stok_barang">Stok barang</label>
 							<input type="text" name="stok_barang" class="form-control" id="stok_barang" value="<?= $barang['stok_barang']; ?>">
 							<small class="form-text text-danger"><?= form_error('stok_barang'); ?></small>
+						</div>
+						<div class="form-group">
+							<label for="terjual">Terjual</label>
+							<input type="text" name="terjual" class="form-control" id="terjual" value="<?= $barang['terjual']; ?>">
+							<small class="form-text text-danger"><?= form_error('terjual'); ?></small>
 						</div>
 						
 						<button type="submit" name="ubah" class="btn btn-primary float-right">Ubah Data</button>

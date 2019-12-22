@@ -61,10 +61,10 @@
 				<form action="<?= base_url('user/tambah_ke_keranjang/'); ?>" method="post">
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="200px">
+							<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;">
 							<div class="pi-links">
 								<button title="Add To Cart" type="submit" class="add-card"><i class="flaticon-bag"></i></button>
-								<button type="button" class="wishlist-btn"><i class="flaticon-heart"></i></button>
+								<!-- <button type="button" class="wishlist-btn"><i class="flaticon-heart"></i></button> -->
 							</div>
 						</div>
 						<div class="pi-text">

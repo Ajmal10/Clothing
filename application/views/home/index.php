@@ -56,12 +56,12 @@
 				<?php foreach($barang as $brg) :?>
 				<div class="product-item">
 					<div class="pi-pic">
-						<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
+						<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;" >
 						<div class="pi-links"><!-- 
 							<a href="<?= base_url(''); ?>user/tambah_ke_keranjang/<?= $brg->id ?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a> -->
 							<a href="<?= base_url(''); ?>auth?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 							<!-- <?= anchor('user/tambah_ke_keranjang/'. $brg->id, '<div class="add-card"><i class="flaticon-bag"></i></div>') ?> -->
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							<!-- <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a> -->
 						</div>
 					</div>
 					<div class="pi-text">

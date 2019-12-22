@@ -72,6 +72,7 @@ class Admin extends CI_Controller{
 		$deskripsi =  $this->input->post('deskripsi');
 		$kategori = $this->input->post('kategori');
 		$stok_barang =  $this->input->post('stok_barang');
+		$terjual = $this->input->post('terjual');
 		$image = $this->upload_img();
 		// Call upload image cconfiguration
 		if(empty($image['file_name'])){

@@ -12,7 +12,7 @@
 
 
 	<!-- cart section end -->
-	<section class="cart-section spad">
+	<section class="cart-section spad" style="margin-top: -90px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
@@ -77,7 +77,7 @@
 	<!-- cart section end -->
 
 	<!-- Related product section -->
-	<section class="related-product-section">
+	<!-- <section class="related-product-section">
 		<div class="container">
 			<div class="section-title text-uppercase">
 				<h2>Continue Shopping</h2>
@@ -146,5 +146,5 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Related product section end -->

@@ -9,7 +9,7 @@
 					<div class="filter-widget">
 						<h2 class="fw-title">Kategori</h2>
 						<ul class="category-menu">
-							<li><a href="<?= base_url('');?>category/pakaian_atasan">Semua</a></li>
+							<li><a href="<?= base_url('');?>category/index">Semua</a></li>
 							<li><a href="<?= base_url('');?>category/pakaian_atasan">Atasan</a></li>
 							<li><a href="<?= base_url('');?>category/pakaian_bawahan">Bawahan</a></li>
 						</ul>
@@ -22,10 +22,10 @@
 							<div class="col-lg-4 col-sm-6">
 								<div class="product-item">
 									<div class="pi-pic">
-										<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
+										<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;" >
 										<div class="pi-links">
-											<a href="<?= base_url('');?>home/troli/<?= $brg->id ?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-											<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+											<a href="<?= base_url('');?>auth" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+											<!-- <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a> -->
 										</div>
 									</div>
 									<div class="pi-text">
