@@ -48,9 +48,9 @@
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
-						<form class="header-search-form">
-							<input type="text" placeholder="Search on divisima ...." name="keywords">
-							<button type="Submit" name="buttonSearch"><i class="flaticon-search"></i></button>
+						<form action="<?= base_url('category/search_User')?>" method="post" class="header-search-form">
+							<input type="text" class="form-control" placeholder="Search on Clothing Something . . ." name="keyword" autofocus>
+							<button type="submit" name="submit"><i class="flaticon-search"></i></button>
 						</form>
 					</div>
 					<div class="col-xl-4 col-lg-5">
@@ -106,7 +106,7 @@
 				<!-- menu -->
 				<ul class="main-menu">
 					<li><a href="<?= base_url('');?>home/index2">Home</a></li>
-					<li><a href="<?= base_url()?>category/index">Category</a></li>
+					<li><a href="<?= base_url()?>category/indexUser">Category</a></li>
 				</ul>
 			</div>
 		</nav>

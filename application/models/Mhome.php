@@ -18,21 +18,10 @@ class Mhome extends CI_Model{
 	{
 		return $this->db->get_where('barang', ['id' => $id])->row_array();
 	}
+	
 	public function insert($data){
 		$this->db->insert("pesanan", $data);
 		return TRUE;
-	}
-	public function get_data_atasan(){
-		$this->db->select('*');
-		$this->db->from('barang');
-		$this->db->where('kategori','atasan');
-		return $this->db->get();
-	}
-	public function get_data_bawahan(){
-		$this->db->select('*');
-		$this->db->from('barang');
-		$this->db->where('kategori','bawahan');
-		return $this->db->get();
 	}
 
 	public function find($id)

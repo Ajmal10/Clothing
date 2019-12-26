@@ -1,19 +1,10 @@
-
-	<!-- Page info -->
-	<div class="page-top-info">
-		<div class="container">
-			<h4>Detail Page</h4>
-		</div>
-	</div>
-	<!-- Page info end -->
-
-
 	<!-- product section -->
 	<section class="product-section">
 		<div class="container">
 			<div class="row">
 				<?php foreach($barang as $brg) :?>
-				<div class="col-lg-6">
+					<div class="col-lg-6">
+						<form action="<?= base_url('user/tambah_ke_keranjang/'); ?>" method="post">
 					<div class="product-pic-zoom">
 						<img class="product-big-img" src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" alt="">
 					</div>
@@ -29,7 +20,7 @@
 	
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title"><?= $brg->nama ?></h2>
-					<h3 class="p-price">Rp.<?= $brg->harga ?></h3>
+					<h3 class="p-price">Rp. <?= $brg->harga ?></h3>
 					<h4 class="p-stock">Available: <?= $brg->stok_barang ?> <span>In Stock</span></h4>
 					<div class="p-rating">
 						<i class="fa fa-star-o"></i>
@@ -68,8 +59,13 @@
 					<div class="quantity">
 						<p>Quantity</p>
                         <div class="pro-qty"><input type="text" value="1"></div>
-                    </div>
-					<a href="<?= base_url(''); ?>auth" class="site-btn">SHOP NOW</a>
+					</div>
+					<input type="hidden" name="id" value="<?php echo $brg->id ?>" />
+					<input type="hidden" name="nama" value="<?php echo $brg->nama ?>" />
+					<input type="hidden" name="harga" value="<?php echo $brg->harga ?>" />
+					<input type="hidden" name="gambar" value="<?php echo $brg->image ?>" />
+					<button title="SHOP NOW" type="submit" class="site-btn">SHOP NOW</button>
+				</form>
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">

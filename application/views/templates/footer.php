@@ -3,7 +3,7 @@
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="<?= base_url('assets/')?>img/Clothing.png" alt=""></a>
+				<img src="<?= base_url('assets/')?>img/Clothing.png" alt="">
 			</div>
 			<div class="row">
 				<div class="col-lg-6 col-sm-6">
@@ -36,13 +36,13 @@
 		<div class="social-links-warp">
 			<div class="container">
 				<div class="social-links">
-					<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
-					<a href="" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
-					<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
-					<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
-					<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
-					<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
-					<a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+					<a href="https://www.instagram.com" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+					<a href="https://www.google.com/" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
+					<a href="https://www.pinterest.com" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+					<a href="https://www.facebook.com" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+					<a href="https://www.twitter.com" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+					<a href="https://www.youtube.com" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+					<a href="https://www.tumblr.com" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
 				</div>
 
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> 

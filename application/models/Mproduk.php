@@ -34,10 +34,22 @@ class Mproduk extends CI_Model{
 		$this->db->where('id', $id);
 		$this->db->update('barang', $data);
 	}
+	
 	public function get_data_terjual(){
 		$this->db->select('*');
 		$this->db->from('barang');
 		$this->db->where('terjual >',0);
 		return $this->db->get();
 	}
+
+	public function detail_barang($id)
+	{
+		$result = $this->db->where('id', $id)->get('barang');
+		if ($result->num_rows() > 0) {
+			return $result->result();
+		}else{
+			return false;
+		}
+	}
+
 }

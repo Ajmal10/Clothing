@@ -15,17 +15,15 @@ class Mkategori extends CI_Model {
 		return $this->db->get();
 	}
 	public function get_data_bawahan(){
-		// $this->db->select('*');
-		// $this->db->from('barang');
-		// $this->db->where('kategori','bawahan');
-		// return $this->db->get_where("barang", array('kategori' => 'Bawahan'));
-		// $query = $this->db->get("barang") ;
-		
-		// return $query->result();
 		$this->db->select('*');
 		$this->db->from('barang');
 		$this->db->where('kategori','2');
 		return $this->db->get();
 	}
 
+	public function getProdukBySearch($keyword){
+		$this->db->like('nama',$keyword);
+		$query = $this->db->get('barang');
+		return $query->result();
+	}
 }
