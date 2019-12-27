@@ -62,10 +62,12 @@ class User extends CI_Controller
 	{
 		// $this->cart->destroy();
 		// redirect('home/troli');
-		$data = array('rowid' => $rowid, 			 				 
-						'qty' =>0); 				
-		$this->cart->update($data);
-		redirect('troli/index');
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$this->Mhome->hapus_keranjang_cart($rowid);
+		$this->load->view('templates/headerUser', $data);
+		$this->load->view('troli/index',$data);
+		$this->load->view('templates/footer');
+		
 	}
 
 	public function pembayaran()

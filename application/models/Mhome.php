@@ -24,12 +24,15 @@ class Mhome extends CI_Model{
 		return TRUE;
 	}
 
-	public function hapus_keranjang_cart()
+	public function hapus_keranjang_cart($rowid)
 	{
 		//$this->cart->destroy();
-		$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Congratulation! your order success to delete</div>');
+		
 		// redirect('troli/index');
-		 $this->cart->update(array('rowid'=>'44','qty'=>0));
+		$data = array('rowid' => $rowid, 			 				 
+						'qty' =>0); 				
+		$this->cart->update($data);
+		$this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Congratulation! your order success to delete</div>');
 		
 
 

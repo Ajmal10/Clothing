@@ -28,6 +28,8 @@
 							</thead>
 							<tbody>
 								<?php foreach ($this->cart->contents() as $items) : ?>
+									<input type="hidden" name="cart[<?php echo $items['id'];?>][id]" value="<?php echo $items['id'];?>" />
+									<input type="hidden" name="cart[<?php echo $items['id'];?>][rowid]" value="<?php echo $items['rowid'];?>" />
 								<tr>
 									<td class="product-col">
 									<img src="<?= base_url('');?>assets/img/product/<?= $items['image'] ?>" alt="">
@@ -37,7 +39,7 @@
 									</td>
 									<td class="size-col"><h4><?= $items['qty'] ?></h4></td>
 									<td class="total-col"><h4>Rp. <?= number_format($items['price'], 0,',','.') ?></h4></td>
-									<td class="total-col"><a href="<?= base_url('user/hapus_keranjang/')?><?= $items['id']?>"><button class="btn btn-danger">Delete</button></a></td>
+									<td class="total-col"><a href="<?= base_url('user/hapus_keranjang/')?><?= $items['rowid']?>"><button class="btn btn-danger">Delete</button></a></td>
 									<!-- <td class="total-th">Delete</td> -->
 								<?php endforeach ?>
 								</tr>	
