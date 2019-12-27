@@ -19,6 +19,7 @@
 					<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
 						<div class="row">
 							<?php foreach ($barang as $brg) : ?>
+								<div class="col-lg-4 col-sm-6">
 								<form action="<?= base_url('user/tambah_ke_keranjang/'); ?>" method="post">
 									<div class="product-item">
 										<div class="pi-pic">
@@ -30,8 +31,8 @@
 											</div>
 										</div>
 										<div class="pi-text">
-											<h6><?= $brg->harga ?></h6>
-											<p>Rp.<?= $brg->nama ?> </p>
+											<h6>Rp.<?= number_format( $brg->harga, 0,',','.')?> </h6>
+											<p><?= $brg->nama ?> </p>
 										</div>
 									</div>
 									<input type="hidden" name="id" value="<?php echo $brg->id ?>" />
@@ -39,6 +40,7 @@
 									<input type="hidden" name="harga" value="<?php echo $brg->harga ?>" />
 									<input type="hidden" name="gambar" value="<?php echo $brg->image ?>" />
 								</form>
+								</div>
 							<?php endforeach ?>
 							
 							<div class="text-center w-100 pt-3">

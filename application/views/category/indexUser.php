@@ -18,28 +18,30 @@
 
 					<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
 						<div class="row">
-						<?php foreach ($barang as $brg) : ?>
-							<form action="<?= base_url('user/tambah_ke_keranjang/'); ?>" method="post">
-								<div class="product-item">
-									<div class="pi-pic">
-										<a href="<?= base_url(''); ?>product/detail_user/<?= $brg->id ?>">	
-											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;" >
-										</a>
-										<div class="pi-links">
-											<button title="Add To Cart" type="submit" class="add-card"><i class="flaticon-bag"></i></button>
+						<?php foreach ($barangs as $brg) : ?>
+								<div class="col-lg-4 col-sm-6">
+								<form action="<?= base_url('user/tambah_ke_keranjang/'); ?>" method="post">
+									<div class="product-item">
+										<div class="pi-pic">
+											<a href="<?= base_url(''); ?>product/detail_user/<?= $brg->id ?>">	
+												<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;" >
+											</a>
+											<div class="pi-links">
+												<button title="Add To Cart" type="submit" class="add-card"><i class="flaticon-bag"></i></button>
+											</div>
+										</div>
+										<div class="pi-text">
+											<h6>Rp.<?= number_format( $brg->harga, 0,',','.')?> </h6>
+											<p><?= $brg->nama ?> </p>
 										</div>
 									</div>
-									<div class="pi-text">
-										<h6><?= $brg->harga ?></h6>
-										<p>Rp.<?= $brg->nama ?> </p>
-									</div>
+									<input type="hidden" name="id" value="<?php echo $brg->id ?>" />
+									<input type="hidden" name="nama" value="<?php echo $brg->nama ?>" />
+									<input type="hidden" name="harga" value="<?php echo $brg->harga ?>" />
+									<input type="hidden" name="gambar" value="<?php echo $brg->image ?>" />
+								</form>
 								</div>
-								<input type="hidden" name="id" value="<?php echo $brg->id ?>" />
-								<input type="hidden" name="nama" value="<?php echo $brg->nama ?>" />
-								<input type="hidden" name="harga" value="<?php echo $brg->harga ?>" />
-								<input type="hidden" name="gambar" value="<?php echo $brg->image ?>" />
-							</form>
-						<?php endforeach ?>
+							<?php endforeach ?>
 							<div class="text-center w-100 pt-3">
 								<button class="site-btn sb-line sb-dark">LOAD MORE</button>
 							</div>

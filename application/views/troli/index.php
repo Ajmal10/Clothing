@@ -1,15 +1,13 @@
 <!-- Page info -->
 <div class="page-top-info">
-		<div class="container">
-			<h4>Your cart</h4>
-			<div class="site-pagination">
-				<a href="">Home</a> /
-				<a href="">Your cart</a>
-			</div>
-		</div>
+	<div class="container">
+		<h4>Your cart</h4> <br></br>
+		<?php if($this->session->flashdata('message')): ?>
+		<?= $this->session->flashdata('message');?>
+		<?php endif ;?>
 	</div>
-	<!-- Page info end -->
-
+</div>
+<!-- Page info end -->
 
 	<!-- cart section end -->
 	<section class="cart-section spad" style="margin-top: -90px;">
@@ -22,39 +20,27 @@
 							<table>
 							<thead>
 								<tr>
-									<th class="product-th">Product</th>
-									<th class="quy-th">Quantity</th>
-									<th class="total-th">Price</th>
+									<th class="product-th">Nama Produk</th>
+									<th class="size-th">Jumlah</th>
+									<th class="total-th">Harga</th>
+									<th class="total-th">Opsi</th>
 								</tr>
 							</thead>
 							<tbody>
-								
-									<?php 
-										// $no=1;
-										foreach ($this->cart->contents() as $items) : ?>
+								<?php foreach ($this->cart->contents() as $items) : ?>
 								<tr>
-
 									<td class="product-col">
-										<!-- <img src="<?= base_url('');?>assets/img/product/<?= $items['image'] ?>" alt=""> -->
-										<!-- <div class="pc-title"> -->
+									<img src="<?= base_url('');?>assets/img/product/<?= $items['image'] ?>" alt="">
+										<div class="pc-title">
 											<h4><?= $items['name'] ?></h4></p>
-										<!-- </div> -->
+										</div>
 									</td>
-									<td>
-										<!-- <div class="pc-title"> -->
-											<p><?= $items['qty'] ?></p> </p>
-										<!-- </div> -->
-									</td>
-									<td>
-										<!-- <div class="pc-title"> -->
-											<p>Rp.<?= number_format($items['price']) ?> </p>
-										<!-- </div> -->
-									</td>
-
-				
-							<?php endforeach ?>
-								</tr>
-								
+									<td class="size-col"><h4><?= $items['qty'] ?></h4></td>
+									<td class="total-col"><h4>Rp. <?= number_format($items['price'], 0,',','.') ?></h4></td>
+									<td class="total-col"><a href="<?= base_url('user/hapus_keranjang/')?><?= $items['id']?>"><button class="btn btn-danger">Delete</button></a></td>
+									<!-- <td class="total-th">Delete</td> -->
+								<?php endforeach ?>
+								</tr>	
 							</tbody>
 						</table>
 						</div>

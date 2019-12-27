@@ -12,6 +12,8 @@
 						<li><a href="<?= base_url()?>admin/index">Semua Produk</a></li>
 							<li><a href="<?= base_url()?>admin/produkTerjual">Produk Terjual</a></li>
 							<li><a href="<?= base_url()?>admin/kelola">Tambah Produk</a></li>
+							<li><a href="<?= base_url()?>admin/invoice">Inovice Penjualan</a></li>
+
 						</ul>
 					</div>
 				</div>
@@ -21,18 +23,18 @@
 							<h2>Produk Terjual</h2>
 						</div>
 							<div class="row mt-5">
-								<?php foreach($barang as $brg) :?>
+							<?php foreach($barang as $brg) :?>
 								<div class="col-lg-4 col-sm-6">
 									<div class="product-item">
 										<div class="pi-pic">
-											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" width="250px" >
+											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;">
 											<div class="pi-links">
-												<a href="<?= base_url('');?>home/troli/<?= $brg->id ?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-												<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+												<a href="<?= base_url('');?>admin/ubah/<?= $brg->id ?>" class="add-card"><i class="flaticon-edit"></i><span>Edit</span></a>
+												<a href="<?= base_url('');?>admin/hapus/<?= $brg->id ?>" class="wishlist-btn"><i class="flaticon-garbage"></i></a>
 											</div>
 										</div>
 										<div class="pi-text">
-											<h6><?= $brg->harga ?></h6>
+											<h6>Rp.<?= number_format( $brg->harga, 0,',','.')?></h6>
 											<p><?= $brg->nama ?> </p>
 										</div>
 									</div>

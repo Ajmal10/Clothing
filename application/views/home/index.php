@@ -1,33 +1,30 @@
 	<!-- Hero section -->
 	<section class="hero-section">
 		<div class="hero-slider owl-carousel">
-			<div class="hs-item set-bg" data-setbg="<?= base_url('assets/img/bg.jpg') ?>">
+			<div class="hs-item set-bg" data-setbg="<?= base_url('assets/img/background.png') ?>">
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7 text-white">
 							<span>New Arrivals</span>
 							<h2>denim jackets</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="#" class="site-btn sb-line">DISCOVER</a>
-							<a href="<?= base_url('');?>troli" class="site-btn sb-white">ADD TO CART</a>
+							
 						</div>
 					</div>
 					<div class="offer-card text-white">
 						<span>from</span>
-						<h2>$29</h2>
+						<h2>$8</h2>
 						<p>SHOP NOW</p>
 					</div>
 				</div>
 			</div>
-			<div class="hs-item set-bg" data-setbg="<?= base_url('assets/img/bg-2.jpg') ?>">
+			<div class="hs-item set-bg" data-setbg="<?= base_url('assets/img/background2.png') ?>">
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7 text-white">
 							<span>New Arrivals</span>
 							<h2>denim jackets</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="#" class="site-btn sb-line">DISCOVER</a>
-							<a href="<?= base_url('aplication/views/troli/index.php')?>" class="site-btn sb-white">ADD TO CART</a>
 						</div>
 					</div>
 					<div class="offer-card text-white">
@@ -64,7 +61,7 @@
 						</div>
 					</div>
 					<div class="pi-text">
-						<h6>Rp.<?= $brg->harga ?></h6>
+						<h6>Rp. <?= number_format( $brg->harga, 0,',','.')?></h6>
 						<p><?= $brg->nama ?> </p>
 					</div>
 					<!-- <div>

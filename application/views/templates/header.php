@@ -42,10 +42,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
-						<!-- logo -->
-						<a href="./index.html" class="site-logo">
 							<img src="<?= base_url('assets/')?>img/Clothing.png" alt="">
-						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
 						<form action="<?= base_url('category/search')?>" method="post" class="header-search-form">

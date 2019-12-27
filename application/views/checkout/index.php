@@ -1,11 +1,10 @@
 <!-- Page info -->
 <div class="page-top-info">
 	<div class="container">
-		<h4>Your cart</h4>
-		<div class="site-pagination">
-			<a href="">Home</a> /
-			<a href="">Your cart</a>
-		</div>
+		<h4>Your checkout</h4> <br></br>
+		<?php if($this->session->flashdata('message')): ?>
+		<?= $this->session->flashdata('message');?>
+		<?php endif ;?>
 	</div>
 </div>
 <!-- Page info end -->
@@ -20,9 +19,9 @@
 					<div class="cf-title">Billing Address</div>
 					<div class="row address-inputs">
 						<div class="col-md-12">
-							<input type="text" name="nama" id="nama" placeholder="Nama">
-							<input type="text" placeholder="Alamat" name="alamat" id="alamat">
-							<input type="text" placeholder="No Telp" name="no_telp" id="no_telp">
+							<input type="text" name="nama_customer" id="nama_customer" placeholder="Nama" required>
+							<input type="text" placeholder="Alamat" name="alamat" id="alamat" required>
+							<input type="text" placeholder="No Telp" name="no_telp" id="no_telp" required|numeric>
 						</div>
 					</div>
 					<button class="site-btn submit-order-btn" type="submit">Place Order</button>
@@ -34,13 +33,15 @@
 					<ul class="product-list">
 						<?php foreach ($this->cart->contents() as $items) : ?>
 							<li>
+								<div class="pl-thumb"><img src="<?= base_url('');?>assets/img/product/<?= $items['image'] ?>" alt=""></div>
 								<h6><?= $items['name'] ?></h6>
 								<p>Rp.<?= number_format($items['price']) ?></p>
 							</li>
 						<?php endforeach ?>
 					</ul>
 					<ul class="price-list">
-						<li>Total <span>Rp. <?= number_format($this->cart->total()) ?></span></li>
+							<li class="total">Total </li>
+							<span>Rp. <?= number_format($this->cart->total()) ?></span>
 					</ul>
 				</div>
 			</div>

@@ -22,7 +22,7 @@
 							<div class="col-lg-4 col-sm-6">
 								<div class="product-item">
 									<div class="pi-pic">
-										<a href="<?= base_url('') ?>">
+										<a href="<?= base_url(''); ?>product/detail/<?= $brg->id ?>">	
 											<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;" >
 										</a>
 										<div class="pi-links">
@@ -31,7 +31,7 @@
 										</div>
 									</div>
 									<div class="pi-text">
-										<h6>Rp. <?= $brg->harga ?></h6>
+										<h6>Rp. <?= number_format( $brg->harga, 0,',','.')?></h6>
 										<p><?= $brg->nama ?> </p>
 									</div>
 								</div>

@@ -21,7 +21,7 @@ class Category extends CI_Controller {
 	 {
 		$data['title'] = 'Clothing Something Kategori';
 		$data['user'] = $this->db->get_where('user',['email'=> $this->session->userdata('email')])->row_array();
-		$data['barang'] = $this->Mkategori->semuaKategori();
+		$data['barangs'] = $this->Mkategori->semuaKategori();
 		$this->load->view('templates/headerUser',$data);
 		$this->load->view('category/indexUser', $data);
 		$this->load->view('templates/footer');

@@ -22,14 +22,16 @@
 							<div class="col-lg-4 col-sm-6">
 								<div class="product-item">
 									<div class="pi-pic">
-										<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;" >
+										<a href="<?= base_url(''); ?>product/detail/<?= $brg->id ?>">	
+												<img src="<?= base_url('') ?>assets/img/product/<?= $brg->image ?>" style="width: 250px;height: 250px;" >
+										</a>
 										<div class="pi-links">
 											<a href="<?= base_url('');?>auth" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 											<!-- <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a> -->
 										</div>
 									</div>
 									<div class="pi-text">
-										<h6>Rp. <?= $brg->harga ?></h6>
+										<h6>Rp. <?= number_format( $brg->harga, 0,',','.')?></h6>
 										<p><?= $brg->nama ?> </p>
 									</div>
 								</div>

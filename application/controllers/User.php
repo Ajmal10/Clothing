@@ -32,8 +32,8 @@ class User extends CI_Controller
 		$product = [
 			'id' => $this->input->post('id'),
 			'name' => $this->input->post('nama'),
-			'price' =>  $this->input->post('harga'),
-			'image' =>  $this->input->post('gambar'),
+			'price' => $this->input->post('harga'),
+			'image' => $this->input->post('gambar'),
 			'qty' => 1
 		];
 
@@ -58,10 +58,14 @@ class User extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function hapus_keranjang()
+	public function hapus_keranjang($rowid)
 	{
-		$this->cart->destroy();
-		redirect('home/index2');
+		// $this->cart->destroy();
+		// redirect('home/troli');
+		$data = array('rowid' => $rowid, 			 				 
+						'qty' =>0); 				
+		$this->cart->update($data);
+		redirect('troli/index');
 	}
 
 	public function pembayaran()
@@ -74,13 +78,12 @@ class User extends CI_Controller
 
 	public function proses_pesanan()
 	{
-		$nama = $this->input->post('nama');
+		$nama = $this->input->post('nama_customer');
 		$alamat = $this->input->post('alamat');
 		$noHp = $this->input->post('no_telp');
-		$cart = $this->cart->contents();
 
 		$data = [
-			'nama' => $nama,
+			'nama_customer' => $nama,
 			'no_hp' => $noHp,
 			'alamat' => $alamat
 		];
@@ -90,12 +93,13 @@ class User extends CI_Controller
 			'tanggal' => date('Y-m-d'),
 			'id_customer' => $customer // id customer didapat ketika sudah di insert diatas di model mereturn insert_id
 		];
-		$pesanan = $this->Mpesanan->insertPesanan($data1);
+		$this->Mpesanan->insertPesanan($data1);
+		$getLastId = $this->Mpesanan->getLastId();
 
-		if ($cart) {
+		if ($cart = $this->cart->contents()) {
 			foreach ($cart as $item) {
 				$detailPesanan = [
-					'id_pesanan' =>$pesanan, // id pesanan didapat ketika sudah di insert diatas di model mereturn insert_id
+					'id_pesanan' => $getLastId,
 					'id_barang' => $item['id'],
 					'qty' => $item['qty'],
 					'harga' => $item['price']
@@ -111,9 +115,9 @@ class User extends CI_Controller
 					'terjual' => $tambahStok
 				]);
 			}
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your order success</div>');
 		}
 		$this->cart->destroy();
-		redirect('home/index2');
+		redirect('user/pembayaran');
 	}
 }
-

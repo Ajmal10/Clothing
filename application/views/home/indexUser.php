@@ -70,8 +70,8 @@
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6><?= $brg->harga ?></h6>
-							<p>Rp.<?= $brg->nama ?> </p>
+							<h6>Rp. <?= number_format( $brg->harga, 0,',','.')?></h6>
+							<p><?= $brg->nama ?> </p>
 						</div>
 					</div>
 					<input type="hidden" name="id" value="<?php echo $brg->id ?>" />

@@ -20,7 +20,7 @@
 	
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title"><?= $brg->nama ?></h2>
-					<h3 class="p-price">Rp. <?= $brg->harga ?></h3>
+					<h3 class="p-price">Rp. <?= number_format( $brg->harga, 0,',','.') ?></h3>
 					<h4 class="p-stock">Available: <?= $brg->stok_barang ?> <span>In Stock</span></h4>
 					<div class="p-rating">
 						<i class="fa fa-star-o"></i>
@@ -33,27 +33,23 @@
 						<p>Size</p>
 						<div class="sc-item">
 							<input type="radio" name="sc" id="xs-size">
-							<label for="xs-size">32</label>
+							<label for="xs-size">S</label>
 						</div>
 						<div class="sc-item">
 							<input type="radio" name="sc" id="s-size">
-							<label for="s-size">34</label>
+							<label for="s-size">M</label>
 						</div>
 						<div class="sc-item">
 							<input type="radio" name="sc" id="m-size" checked="">
-							<label for="m-size">36</label>
+							<label for="m-size">L</label>
 						</div>
 						<div class="sc-item">
 							<input type="radio" name="sc" id="l-size">
-							<label for="l-size">38</label>
+							<label for="l-size">XL</label>
 						</div>
 						<div class="sc-item disable">
 							<input type="radio" name="sc" id="xl-size" disabled>
-							<label for="xl-size">40</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="xxl-size">
-							<label for="xxl-size">42</label>
+							<label for="xl-size">XXL</label>
 						</div>
 					</div>
 					<div class="quantity">
